@@ -1,0 +1,14 @@
+{
+  "name": "electron-ipc-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "LinDaiDai",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^13.6.7"
+  }
+}

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>electron-ipc-example</title>
+</head>
+<body>
+    <h1>electron-ipc-example</h1>
+    <input type="text" id="message">
+    <button onclick="sendMessageToMain()">渲染进程通过 send 发送消息给主进程</button>
+    <button onclick="invokeMessageToMain()">渲染进程通过 invoke 发送消息给主进程</button>
+    <button onclick="sendSyncMessageToMain()">渲染进程通过 syncSend 发送同步消息给主进程</button>
+    <button onclick="sendMessageToMainProcess()">发送消息给主进程</button>
+    <script src="./renderer.js"></script>
+</body>
+</html>
