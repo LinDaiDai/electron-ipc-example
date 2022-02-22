@@ -1,20 +1,19 @@
 ## 简介
 
-本项目为 `electron ipc` 相关文章的案例。
+**此分支为 [《主进程与渲染进程的两情相悦》](https://juejin.cn/post/7067342993157537822/) 的案例代码。**
 
-此分支是第一部分的案例——官方默认提供的通信方式：
+本项目为 electron ipc 相关文章的案例。文章链接：https://juejin.cn/post/7067342993157537822/
 
-- 渲染进程发送同步/异步消息给主进程
-    - 渲染进程发送同步消息给主进程
-    - 渲染进程发送异步消息给主进程
-- 主进程发送同步/异步消息给渲染进程
-    - 主进程发送同步消息给渲染进程
-    - 主进程发送同步消息给渲染进程
-- 渲染进程发送同步/异步消息给渲染进程
+不同章节的案例会放在不同的分支, 本系列共有以下几个章节：
 
-版本：
+- [《主进程与渲染进程的两情相悦》](https://juejin.cn/post/7067342993157537822/)：[example-1](https://github.com/LinDaiDai/electron-ipc-example/tree/example-1)
+- 渲染进程与渲染进程的搭桥牵线: [example-2](https://github.com/LinDaiDai/electron-ipc-example/tree/example-2)
+- 定情信物传声筒port
+
+案例版本信息：
 
 - electron: v13.6.7
+- Nodejs: v16.13.2
 
 ## 使用
 
