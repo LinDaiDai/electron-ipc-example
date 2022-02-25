@@ -1,18 +1,33 @@
 const { ipcMain } = require('electron')
 
-const windowIdMap = {}
+const windowContentsMap = {}
 
-exports.registerWindowId = function(key, value) {
-    windowIdMap[key] = value;
-    console.log('registerWindowId', windowIdMap);
+exports.registerWindowContents = function(key, value) {
+    windowContentsMap[key] = value;
+    // console.log('registerWindowContents', windowContentsMap);
 }
 
-exports.removeWindowId = function(key) {
-    delete windowIdMap[key];
-    console.log('removeWindowId', windowIdMap);
+exports.removeWindowContents = function(key) {
+    delete windowContentsMap[key];
+    // console.log('removeWindowContents', windowContentsMap);
 }
 
-ipcMain.on('getWindowId', (event, arg) => {
-    console.log('getWindowId', arg);
-    event.returnValue = windowIdMap[arg];
+function getWindowContents(key) {
+    return windowContentsMap[key];
+}
+
+/**
+ * event: 事件对象
+ * params: { channel: string; targetWindow: string; data: any }
+ * channel: 事件名; targetWindow: 目标窗口的唯一标识; data: 要传递的内容
+ */
+ipcMain.on('renderer-send-to-renderer', (event, params) => {
+    console.log('[Main receive]renderer-send-to-renderer', params);
+    const { channel, targetWindow, data } = params;
+    const contents = getWindowContents(targetWindow);
+    if (contents) {
+        contents.send(channel, data);
+    } else {
+        console.error('targetWindow non-existent');
+    }
 })

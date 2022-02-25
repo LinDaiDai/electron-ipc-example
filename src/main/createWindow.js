@@ -1,5 +1,5 @@
 const { BrowserWindow } = require('electron')
-const { registerWindowId, removeWindowId } = require('./windowManager');
+const { registerWindowContents, removeWindowContents } = require('./windowManager');
 
 /**
  * 公共的创建窗口的方法
@@ -20,10 +20,10 @@ exports.createWindow = function (params) {
   window.loadFile(loadFileUrl)
 
   window.webContents.on('did-finish-load', () => {
-    registerWindowId(name, window.webContents.id);
+    registerWindowContents(name, window.webContents);
   })
 
   window.webContents.on('destroyed', () => {
-    removeWindowId(name);
+    removeWindowContents(name);
   })
 }
