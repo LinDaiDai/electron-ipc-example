@@ -1,5 +1,6 @@
 const { app, BrowserWindow } = require('electron')
-const { createWindow } = require('./createWindow');
+const { createWindow } = require('./createWindow')
+const ipc = require('./ipc')
 
 function createWindowOne() {
   createWindow({
@@ -10,19 +11,9 @@ function createWindowOne() {
   })
 }
 
-function createWindowTwo() {
-  createWindow({
-    name: 'two',
-    width: 800,
-    height: 600,
-    loadFileUrl: 'src/windows/window-two/index.html',
-  })
-}
-
 app.whenReady().then(() => {
-  createWindowOne();
-  createWindowTwo();
-});
+  createWindowOne()
+})
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
@@ -32,7 +23,6 @@ app.on('window-all-closed', () => {
 
 app.on('activate', () => {
   if (BrowserWindow.getAllWindows().length === 0) {
-    createWindowOne();
-    createWindowTwo();
+    createWindowOne()
   }
 })

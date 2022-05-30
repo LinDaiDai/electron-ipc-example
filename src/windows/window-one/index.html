@@ -8,7 +8,8 @@
 </head>
 <body>
     <h1>Window One</h1>
-    <button onclick="sendToWindowTwo()">窗口1通过 sendTo 给窗口2发送消息</button>
+    <button onclick="sendPortToMain()">窗口1 postMessage 给主进程发送消息端口 port1</button>
+    <button onclick="sendMessageToMain()">窗口1 通过 port2 给主进程发送消息</button>
     <script src="./renderer.js"></script>
 </body>
 </html>
